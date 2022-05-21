@@ -1,0 +1,19 @@
+Dim NewLevExp
+NewLevExp = $BlockInput
+If NewLevExp<>OldLevExp 
+OldLevExp = NewLevExp
+//StatusErr = StatusErr + 1
+
+StatusErr = 0
+Log.Info("正常，等待下次刷新")
+Delay(60000)
+
+Else 
+StatusErr = StatusErr + 1
+
+Log.Info("异常，连续错误次数为"&StatusErr)
+WebBrowser.Refresh(hWeb,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+Delay(60000)
+
+End If
+Log.Info("最新等级经验值为"&OldLevExp)

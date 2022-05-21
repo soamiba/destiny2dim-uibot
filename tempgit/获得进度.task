@@ -1,0 +1,31 @@
+Dim AllStrLevel,AllStrExp,StrLevel,StrExp3,StrExp2,StrExp1,StrExp0,StrExp,StrLevelExp,CnumLevelExp,iRet,temp,sRet,dRet,bRet,arrRet
+Delay(1000)
+AllStrExp = UiElement.GetValue(@ui"文本<span>_56,699/100,000",{"bContinueOnError":true,"iDelayAfter":300,"iDelayBefore":200})
+bRet = UiElement.Exists(@ui"文本<span>_赛季等级",{"bContinueOnError":true,"iDelayAfter":300,"iDelayBefore":200})
+If bRet 
+
+AllStrLevel = UiElement.GetValue(@ui"文本<span>_赛季等级",{"bContinueOnError":true,"iDelayAfter":300,"iDelayBefore":200})
+Log.Info(AllStrLevel+" "+AllStrExp)
+StrLevel=DigitFromStr(AllStrLevel)
+StrExp3=Split(AllStrExp,"/")
+StrExp2=DigitFromStr(StrExp3[0])
+
+StrExp1 = CNumber(StrExp2)
+StrExp0 = StrExp1/100000
+StrExp = CStr(StrExp0)
+Log.Info("经验值："&StrExp)
+StrLevelExp = StrLevel&StrExp
+CnumLevelExp=CNumber(StrLevelExp)
+Log.Info("等级经验值："&CnumLevelExp)
+Else 
+
+Log.Warn("赛季等级获取失败，下次刷新再看看")
+End If
+
+
+
+
+//StrExp3=RTrim(AllStrExp,"/100,000")
+
+
+Return AllStrExp

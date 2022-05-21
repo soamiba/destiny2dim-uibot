@@ -1,0 +1,24 @@
+Dim iRet,bRet
+hWeb = WebBrowser.BindBrowser("chrome",10000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+//WebBrowser.Refresh(hWeb,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+//iRet = WebBrowser.WaitPage(hWeb,@ui"标题<h2>_+5光等奖励",60000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+Mouse.Action(@ui"链接<a>1","left","click",10000,{"bContinueOnError": true, "iDelayAfter": 300, "iDelayBefore": 200, "bSetForeground": false, "sCursorPosition": "Center", "iCursorOffsetX": 0, "iCursorOffsetY": 0, "sKeyModifiers": [],"sSimulate": "uia", "bMoveSmoothly": false})
+Log.Info("点击刷新按钮")
+bRet = UiElement.Exists(@ui"链接<a>loading",{"bContinueOnError":true,"iDelayAfter":300,"iDelayBefore":200})
+
+Do While bRet
+
+Log.Info("等待刷新结束")
+Delay(5000)
+bRet = UiElement.Exists(@ui"链接<a>loading",{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+Loop
+iRet = WebBrowser.WaitPage(hWeb,@ui"文本<span>_56,699/100,000",60000,{"bContinueOnError":true,"iDelayAfter":300,"iDelayBefore":200})
+
+Do Until iRet
+Log.Info("小刷新按钮失败，刷新浏览器")
+WebBrowser.Refresh(hWeb,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+
+iRet = WebBrowser.WaitPage(hWeb,@ui"文本<span>_56,699/100,000",60000,{"bContinueOnError":true,"iDelayAfter":300,"iDelayBefore":200})
+
+Loop
+Log.Info("刷新成功")
