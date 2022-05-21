@@ -1,0 +1,301 @@
+{
+    "id": "628bdde0-d46d-11ec-9682-85ff8d13fde7",
+    "name": "dim测试",
+    "version": "6.0.0.211215",
+    "variables": [
+        {
+            "type": "none",
+            "name": "g_iPID",
+            "value": "0",
+            "category": "number"
+        },
+        {
+            "type": "none",
+            "name": "IsOpenBrowser",
+            "value": "false",
+            "category": "boolean"
+        },
+        {
+            "type": "none",
+            "name": "OldLevExp",
+            "value": "\"\"",
+            "category": "string"
+        },
+        {
+            "type": "none",
+            "name": "StatusErr",
+            "value": "0",
+            "category": "string"
+        },
+        {
+            "type": "none",
+            "name": "hWeb",
+            "value": "null",
+            "category": "string"
+        }
+    ],
+    "flow": [
+        {
+            "id": "start",
+            "rect": {
+                "x": -410,
+                "y": -150,
+                "width": 140,
+                "height": 50
+            },
+            "caption": "流程开始",
+            "type": "begin",
+            "next": {
+                "vertices": [],
+                "refId": "628c04f0-d46d-11ec-9682-85ff8d13fde7"
+            }
+        },
+        {
+            "id": "628c04f0-d46d-11ec-9682-85ff8d13fde7",
+            "rect": {
+                "x": -438,
+                "y": -47,
+                "width": 196,
+                "height": 64
+            },
+            "caption": "刷新按钮",
+            "type": "task",
+            "next": {
+                "vertices": [],
+                "refId": "e3e31791-b333-455f-9ea2-d904526f8a41"
+            },
+            "exception": {
+                "vertices": [],
+                "refId": ""
+            },
+            "file": "uibot1551689821930732.task",
+            "in": "",
+            "out": "",
+            "editorMode": "visual",
+            "breakpoints": {
+                "6": null,
+                "8": null
+            }
+        },
+        {
+            "type": "task",
+            "id": "e3e31791-b333-455f-9ea2-d904526f8a41",
+            "rect": {
+                "x": -438,
+                "y": 72,
+                "width": 196,
+                "height": 64
+            },
+            "caption": "获得进度",
+            "next": {
+                "refId": "6532b351-d3fc-45f1-8e65-fa0fa721a327",
+                "vertices": []
+            },
+            "exception": {},
+            "file": "获得进度.task",
+            "editorMode": "visual",
+            "breakpoints": {
+                "2": null,
+                "5": null,
+                "7": null,
+                "8": null,
+                "9": null,
+                "10": null,
+                "21": null,
+                "23": null,
+                "24": null,
+                "33": null
+            }
+        },
+        {
+            "type": "task",
+            "id": "6532b351-d3fc-45f1-8e65-fa0fa721a327",
+            "rect": {
+                "x": -438,
+                "y": 194,
+                "width": 196,
+                "height": 64
+            },
+            "caption": "判断进度",
+            "next": {
+                "refId": "5158b7d9-7387-4db8-80a5-4c21cb79010a",
+                "vertices": []
+            },
+            "exception": {},
+            "file": "判断进度.task",
+            "editorMode": "visual",
+            "breakpoints": {}
+        },
+        {
+            "type": "if",
+            "id": "5158b7d9-7387-4db8-80a5-4c21cb79010a",
+            "rect": {
+                "x": -230,
+                "y": 166,
+                "width": 120,
+                "height": 120
+            },
+            "caption": "判断",
+            "yes": {
+                "refId": "628c04f0-d46d-11ec-9682-85ff8d13fde7",
+                "vertices": []
+            },
+            "no": {
+                "refId": "a16674f6-96e5-4b41-ba7e-c3d15faf61ce",
+                "vertices": []
+            },
+            "expression": "StatusErr<5"
+        },
+        {
+            "type": "task",
+            "id": "a16674f6-96e5-4b41-ba7e-c3d15faf61ce",
+            "rect": {
+                "x": -50,
+                "y": 194,
+                "width": 196,
+                "height": 64
+            },
+            "caption": "告警通知",
+            "next": {
+                "refId": "292ab799-7fcd-4275-b80f-66d7d54545bf",
+                "vertices": []
+            },
+            "exception": {},
+            "file": "告警通知.task",
+            "editorMode": "visual",
+            "breakpoints": {}
+        },
+        {
+            "type": "end",
+            "id": "292ab799-7fcd-4275-b80f-66d7d54545bf",
+            "rect": {
+                "x": -22,
+                "y": 22,
+                "width": 140,
+                "height": 50
+            },
+            "caption": "流程结束"
+        }
+    ],
+    "type": "flow",
+    "caption": "dim挂机监控",
+    "layout": {
+        "config": {
+            "global": {
+                "splitterSize": 1,
+                "splitterExtra": 8,
+                "enableEdgeDock": false,
+                "rootOrientationVertical": true,
+                "tabEnableClose": false,
+                "tabEnableRename": false,
+                "tabSetEnableDrag": false,
+                "tabSetEnableMaximize": false,
+                "tabSetMinWidth": 280,
+                "tabSetMinHeight": 200,
+                "borderBarSize": 24,
+                "borderAutoSelectTabWhenClosed": true,
+                "borderEnableAutoHide": true
+            },
+            "borders": [
+                {
+                    "type": "border",
+                    "selected": 0,
+                    "size": 240,
+                    "minSize": 240,
+                    "enableAutoHide": true,
+                    "location": "left",
+                    "children": [
+                        {
+                            "type": "tab",
+                            "id": "flow",
+                            "name": "流程",
+                            "component": "flowPanel"
+                        },
+                        {
+                            "type": "tab",
+                            "id": "command",
+                            "name": "命令",
+                            "component": "commandPanel"
+                        }
+                    ]
+                },
+                {
+                    "type": "border",
+                    "selected": 0,
+                    "size": 280,
+                    "minSize": 280,
+                    "location": "right",
+                    "children": [
+                        {
+                            "type": "tab",
+                            "id": "commandProperty",
+                            "name": "属性",
+                            "component": "commandPropertyPanel"
+                        },
+                        {
+                            "type": "tab",
+                            "id": "commandVariable",
+                            "name": "变量",
+                            "component": "commandVariablePanel"
+                        }
+                    ]
+                }
+            ],
+            "layout": {
+                "type": "row",
+                "id": "body",
+                "children": [
+                    {
+                        "type": "tabset",
+                        "id": "#ef027e3d-aba8-4320-948e-f526f80f916b",
+                        "weight": 154.89361702127658,
+                        "children": [
+                            {
+                                "type": "tab",
+                                "id": "628bdde0-d46d-11ec-9682-85ff8d13fde7",
+                                "name": "dim测试",
+                                "helpText": "D:\\my documents\\doc\\UiBot\\creator\\Projects\\dim测试\\main.prj",
+                                "component": "flowEditor",
+                                "config": {
+                                    "type": "project",
+                                    "id": "628bdde0-d46d-11ec-9682-85ff8d13fde7"
+                                },
+                                "enableClose": false,
+                                "className": ""
+                            }
+                        ],
+                        "active": true
+                    },
+                    {
+                        "type": "tabset",
+                        "id": "buttom",
+                        "weight": 45.1063829787234,
+                        "height": 212,
+                        "config": {
+                            "height": 344,
+                            "selected": 0
+                        },
+                        "enableDrop": false,
+                        "enableDrag": false,
+                        "enableDivide": false,
+                        "enableClose": false,
+                        "minHeight": 32,
+                        "headerHeight": 32,
+                        "children": [
+                            {
+                                "type": "tab",
+                                "id": "output",
+                                "name": "输出",
+                                "component": "outputPanel",
+                                "enableDrag": false,
+                                "enableRenderOnDemand": false
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "type": "flow",
+        "version": "1.0.12"
+    }
+}
