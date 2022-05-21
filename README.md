@@ -14,6 +14,6 @@ https://laiye.com/product/process-creator
 
 ## 2、必须使用chrome打开dim，停留在进度页面
 
-## 3、打开下载的dim-uibot目录
+## 3、下载所有文件放在一个目录下，然后用uibot creator打开
 
 ## 4、点击运行即可
